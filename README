@@ -1,0 +1,19 @@
+Phitly is a cheapo PHP wrapper for the Bitly API. Bitly's API is actually very straightforward, but we needed something portable and I wanted to test out PHP's "magic method" __call(), which is how PHP handles class method overloading. 
+
+It was developed to be as portable and minimal as possible for media and advertising agencies that support multiple clients, applications, and users.
+
+To initialize the Phitly class.
+
+$_p = new Phitly;
+
+To make an API call.
+
+Phitly, which uses the aforementioned __call method, allows one to simply call any of the available endpoints by replacing a '/' with a '_' and using camelCase for any subsequent '_'.
+
+So, if we wanted to call the realtime/bursting_phrases endpoint, we would do the following:
+
+$_p = new Phitly;
+// realtime/bursting_phrases becomes...
+$foo = $_p->realtime_burstingPhrases();
+
+Easy enough, right?
